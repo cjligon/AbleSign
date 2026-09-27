@@ -14,121 +14,111 @@
 
 html, body {
 
-  margin: 0;
+    margin: 0;
 
-  width: 100%;
+    width: 100%;
 
-  height: 100%;
+    height: 100%;
 
 }
 
 body {
 
-  background: #b85c2b;
+    font-family: Arial, Helvetica, sans-serif;
 
-  color: #6b2d1a;
+    background: linear-gradient(135deg, #7b2d26, #c66a2d, #e3a33b);
 
-  font-family: Arial, Helvetica, sans-serif;
+    display: flex;
 
-  text-align: center;
+    justify-content: center;
+
+    align-items: center;
+
+    color: #4b2919;
 
 }
 
-.frame {
+.card {
 
-  background: #fff4d6;
+    width: 88%;
 
-  border: 14px solid #7b321d;
+    max-width: 1200px;
 
-  border-radius: 30px;
+    padding: 45px;
 
-  width: 90%;
+    box-sizing: border-box;
 
-  height: 86%;
+    background: #fff8e7;
 
-  margin: 3% auto;
+    border: 16px solid #8b3f24;
 
-  padding: 25px;
+    border-radius: 35px;
+
+    text-align: center;
 
 }
 
 h1 {
 
-  font-size: 64px;
+    margin: 0 0 15px 0;
 
-  margin: 15px 0 5px 0;
+    font-size: 64px;
 
-  color: #7b321d;
+    color: #8b3f24;
 
 }
 
 .subtitle {
 
-  font-size: 32px;
+    font-size: 34px;
 
-  margin: 5px 0 15px 0;
-
-}
-
-.countbox {
-
-  background: #f4b942;
-
-  border: 8px solid #7b321d;
-
-  border-radius: 25px;
-
-  width: 280px;
-
-  height: 190px;
-
-  margin: 15px auto;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
+    margin-bottom: 25px;
 
 }
 
-#days {
+.number {
 
-  font-size: 120px;
+    font-size: 150px;
 
-  font-weight: bold;
+    line-height: 1;
 
-  line-height: 1;
+    font-weight: bold;
+
+    color: #c65d25;
 
 }
 
 .label {
 
-  font-size: 38px;
+    font-size: 42px;
 
-  font-weight: bold;
+    font-weight: bold;
 
-  margin: 10px 0 20px 0;
+    margin-top: 10px;
 
 }
 
 .date {
 
-  font-size: 38px;
+    font-size: 36px;
 
-  font-weight: bold;
+    font-weight: bold;
 
-  margin: 10px 0;
+    margin-top: 25px;
+
+    color: #6b3524;
 
 }
 
 .church {
 
-  font-size: 28px;
+    font-size: 30px;
 
-  font-weight: bold;
+    font-weight: bold;
 
-  margin-top: 20px;
+    margin-top: 18px;
+
+    color: #8b3f24;
 
 }
 
@@ -138,39 +128,19 @@ h1 {
 
 <body>
 
-<div class="frame">
+<div class="card">
 
-  <h1>CHRISTMAS BAZAAR</h1>
+    <h1>CHRISTMAS BAZAAR</h1>
 
-  <div class="subtitle">
+    <div class="subtitle">The Countdown Is On!</div>
 
-    The Countdown Is On!
+    <div id="days" class="number">--</div>
 
-  </div>
+    <div class="label">DAYS UNTIL THE BAZAAR</div>
 
-  <div class="countbox">
+    <div class="date">NOVEMBER 14, 2026</div>
 
-    <div id="days">49</div>
-
-  </div>
-
-  <div class="label">
-
-    DAYS UNTIL THE BAZAAR
-
-  </div>
-
-  <div class="date">
-
-    NOVEMBER 14, 2026
-
-  </div>
-
-  <div class="church">
-
-    Trinity United Methodist Church
-
-  </div>
+    <div class="church">Trinity United Methodist Church</div>
 
 </div>
 
@@ -178,35 +148,31 @@ h1 {
 
 function updateCountdown() {
 
-  var today = new Date();
+    const now = new Date();
 
-  today = new Date(
+    const today = new Date(
 
-    today.getFullYear(),
+        now.getFullYear(),
 
-    today.getMonth(),
+        now.getMonth(),
 
-    today.getDate()
+        now.getDate()
 
-  );
+    );
 
-  var bazaar = new Date(2026, 10, 14);
+    const bazaar = new Date(2026, 10, 14);
 
-  var difference = bazaar - today;
+    const difference = bazaar - today;
 
-  var days = Math.ceil(
+    const days = Math.max(
 
-    difference / (1000 * 60 * 60 * 24)
+        0,
 
-  );
+        Math.ceil(difference / 86400000)
 
-  if (days < 0) {
+    );
 
-    days = 0;
-
-  }
-
-  document.getElementById("days").textContent = days;
+    document.getElementById("days").textContent = days;
 
 }
 
