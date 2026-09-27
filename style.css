@@ -1,4 +1,8 @@
-* { box-sizing: border-box; }
+* {
+
+  box-sizing: border-box;
+
+}
 
 html, body {
 
@@ -8,66 +12,76 @@ html, body {
 
   height: 100%;
 
-  overflow: hidden;
-
-  background: #17110f;
-
 }
 
 body {
 
-  display: grid;
+  min-height: 100vh;
 
-  place-items: center;
+  display: flex;
 
-}
+  justify-content: center;
 
-.slide {
+  align-items: center;
 
-  position: relative;
+  background: linear-gradient(135deg, #7b2d26, #c76b32, #e7a44c);
 
-  width: min(100vw, 150vh);
+  font-family: Georgia, "Times New Roman", serif;
 
-  aspect-ratio: 3 / 2;
+  text-align: center;
 
-  overflow: hidden;
-
-}
-
-.slide img {
-
-  display: block;
-
-  width: 100%;
-
-  height: 100%;
+  color: #5a241c;
 
 }
 
-.slide svg {
+.card {
 
-  position: absolute;
+  width: 90%;
 
-  inset: 0;
+  max-width: 1100px;
 
-  width: 100%;
+  padding: 55px 40px;
 
-  height: 100%;
+  background: #fff4dc;
+
+  border: 18px solid #8b3f28;
+
+  border-radius: 28px;
+
+  box-shadow: 0 12px 35px rgba(0,0,0,0.35);
 
 }
 
-#days {
+h1 {
 
-  fill: #d9454e;
+  margin: 0;
 
-  stroke: #c33a45;
+  font-size: clamp(48px, 7vw, 100px);
 
-  stroke-width: 0.6px;
+  color: #9d2f24;
 
-  paint-order: stroke fill;
+}
 
-  font: italic bold 123px Georgia, 'Times New Roman', serif;
+.subtitle {
 
-  letter-spacing: -9px;
+  margin-top: 12px;
+
+  font-size: clamp(28px, 4vw, 55px);
+
+  color: #b55a28;
+
+}
+
+.number {
+
+  margin: 15px auto 0;
+
+  font-size: clamp(120px, 22vw, 300px);
+
+  line-height: 0.9;
+
+  font-weight: bold;
+
+  color: #c43c2d;
 
 }
