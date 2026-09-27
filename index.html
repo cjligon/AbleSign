@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 
 <head>
 
@@ -12,7 +12,13 @@
 
 <style>
 
-html, body {
+  * {
+
+    box-sizing: border-box;
+
+  }
+
+  html, body {
 
     margin: 0;
 
@@ -22,15 +28,13 @@ html, body {
 
     overflow: hidden;
 
-}
+  }
 
-body {
+  body {
 
-    background: linear-gradient(135deg, #7a2418, #d07a2d);
+    font-family: Arial, Helvetica, sans-serif;
 
-    color: white;
-
-    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #7b2d26, #c56a2d, #e3a33b);
 
     display: flex;
 
@@ -38,81 +42,125 @@ body {
 
     align-items: center;
 
-    text-align: center;
+    color: #4b2118;
 
-}
+  }
 
-.container {
+  .frame {
 
-    width: 90%;
+    width: 94vw;
 
-}
+    height: 90vh;
 
-h1 {
+    background: #fff8e7;
 
-    font-size: 6vw;
-
-    margin: 0 0 25px;
-
-}
-
-.number-box {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    width: 28vw;
-
-    height: 28vw;
-
-    max-width: 430px;
-
-    max-height: 430px;
-
-    background: #fff8e8;
-
-    color: #8b2e1d;
-
-    border: 12px solid #f2b84b;
+    border: 18px solid #8b3f24;
 
     border-radius: 35px;
 
-    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    box-shadow: 0 0 30px rgba(0,0,0,.35);
 
-}
+    display: flex;
 
-#days {
+    flex-direction: column;
 
-    font-size: 15vw;
+    justify-content: center;
 
-    font-weight: bold;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+  }
+
+  h1 {
+
+    margin: 0 0 25px;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(42px, 7vw, 105px);
+
+    color: #7b2d26;
 
     line-height: 1;
 
-    transform: translateY(-2%);
+  }
 
-}
+  .subtitle {
 
-.days-text {
-
-    font-size: 5vw;
+    font-size: clamp(24px, 3vw, 48px);
 
     font-weight: bold;
 
-    margin-top: 20px;
+    color: #a14c27;
 
-}
+    margin-bottom: 25px;
 
-.date {
+  }
 
-    font-size: 3vw;
+  .countbox {
 
-    margin-top: 15px;
+    background: #7b2d26;
 
-}
+    color: white;
+
+    min-width: 35%;
+
+    padding: 20px 60px 28px;
+
+    border-radius: 30px;
+
+    box-shadow: 0 8px 18px rgba(0,0,0,.25);
+
+    margin: 10px 0 25px;
+
+  }
+
+  #days {
+
+    font-size: clamp(90px, 16vw, 230px);
+
+    font-weight: 800;
+
+    line-height: .95;
+
+  }
+
+  .days-label {
+
+    font-size: clamp(22px, 3vw, 46px);
+
+    font-weight: bold;
+
+    margin-top: 12px;
+
+  }
+
+  .date {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(28px, 4vw, 58px);
+
+    font-weight: bold;
+
+    color: #6b3524;
+
+  }
+
+  .church {
+
+    margin-top: 18px;
+
+    font-size: clamp(20px, 2.5vw, 38px);
+
+    font-weight: bold;
+
+    color: #8b3f24;
+
+  }
 
 </style>
 
@@ -120,33 +168,39 @@ h1 {
 
 <body>
 
-<div class="container">
+<div class="frame">
 
-    <h1>CHRISTMAS BAZAAR</h1>
+  <h1>CHRISTMAS BAZAAR</h1>
 
-    <div class="number-box">
+  <div class="subtitle">The Countdown Is On!</div>
 
-        <div id="days">--</div>
+  <div class="countbox">
 
-    </div>
+    <div id="days">--</div>
 
-    <div class="days-text">DAYS UNTIL THE BAZAAR</div>
+    <div class="days-label">DAYS UNTIL THE BAZAAR</div>
 
-    <div class="date">NOVEMBER 14, 2026</div>
+  </div>
+
+  <div class="date">NOVEMBER 14, 2026</div>
+
+  <div class="church">Trinity United Methodist Church</div>
 
 </div>
 
 <script>
 
-function updateCountdown() {
+  function updateCountdown() {
 
     const now = new Date();
 
     const target = new Date(2026, 10, 14);
 
-    now.setHours(0,0,0,0);
+    
 
-    target.setHours(0,0,0,0);
+    now.setHours(0, 0, 0, 0);
+
+    target.setHours(0, 0, 0, 0);
 
     const difference = target - now;
 
@@ -154,11 +208,11 @@ function updateCountdown() {
 
     document.getElementById("days").textContent = days;
 
-}
+  }
 
-updateCountdown();
+  updateCountdown();
 
-setInterval(updateCountdown, 60000);
+  setInterval(updateCountdown, 60000);
 
 </script>
 
