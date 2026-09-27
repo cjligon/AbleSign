@@ -12,155 +12,161 @@
 
 <style>
 
-  * {
+* {
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-  }
+}
 
-  html, body {
+html, body {
 
-    margin: 0;
+  margin: 0;
 
-    width: 100%;
+  width: 100%;
 
-    height: 100%;
+  height: 100%;
 
-    overflow: hidden;
+}
 
-  }
+body {
 
-  body {
+  font-family: Arial, Helvetica, sans-serif;
 
-    font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #7b2d26, #c66a2d, #e3a33b);
 
-    background: linear-gradient(135deg, #7b2d26, #c56a2d, #e3a33b);
+  display: flex;
 
-    display: flex;
+  justify-content: center;
 
-    justify-content: center;
+  align-items: center;
 
-    align-items: center;
+  color: #4b2919;
 
-    color: #4b2118;
+  overflow: hidden;
 
-  }
+}
 
-  .frame {
+.frame {
 
-    width: 94vw;
+  width: 94vw;
 
-    height: 90vh;
+  height: 90vh;
 
-    background: #fff8e7;
+  background: #fff8e7;
 
-    border: 18px solid #8b3f24;
+  border: 16px solid #8b3f24;
 
-    border-radius: 35px;
+  border-radius: 35px;
 
-    box-shadow: 0 0 30px rgba(0,0,0,.35);
+  box-shadow: 0 0 30px rgba(0,0,0,.35);
 
-    display: flex;
+  display: flex;
 
-    flex-direction: column;
+  flex-direction: column;
 
-    justify-content: center;
+  justify-content: center;
 
-    align-items: center;
+  align-items: center;
 
-    text-align: center;
+  text-align: center;
 
-    padding: 30px;
+  padding: 30px;
 
-  }
+}
 
-  h1 {
+.title {
 
-    margin: 0 0 25px;
+  font-size: clamp(38px, 6vw, 82px);
 
-    font-family: Georgia, serif;
+  font-weight: 800;
 
-    font-size: clamp(42px, 7vw, 105px);
+  color: #8b3f24;
 
-    color: #7b2d26;
+  margin: 0 0 10px;
 
-    line-height: 1;
+}
 
-  }
+.subtitle {
 
-  .subtitle {
+  font-size: clamp(22px, 3vw, 42px);
 
-    font-size: clamp(24px, 3vw, 48px);
+  color: #b85c2b;
 
-    font-weight: bold;
+  margin-bottom: 15px;
 
-    color: #a14c27;
+}
 
-    margin-bottom: 25px;
+.count-box {
 
-  }
+  min-width: 260px;
 
-  .countbox {
+  min-height: 210px;
 
-    background: #7b2d26;
+  padding: 10px 40px;
 
-    color: white;
+  background: #f4b942;
 
-    min-width: 35%;
+  border: 8px solid #8b3f24;
 
-    padding: 20px 60px 28px;
+  border-radius: 30px;
 
-    border-radius: 30px;
+  display: flex;
 
-    box-shadow: 0 8px 18px rgba(0,0,0,.25);
+  justify-content: center;
 
-    margin: 10px 0 25px;
+  align-items: center;
 
-  }
+  margin: 10px 0 12px;
 
-  #days {
+  box-shadow: 0 8px 15px rgba(0,0,0,.2);
 
-    font-size: clamp(90px, 16vw, 230px);
+}
 
-    font-weight: 800;
+#days {
 
-    line-height: .95;
+  font-size: clamp(90px, 14vw, 180px);
 
-  }
+  line-height: 1;
 
-  .days-label {
+  font-weight: 900;
 
-    font-size: clamp(22px, 3vw, 46px);
+  color: #7b2d26;
 
-    font-weight: bold;
+}
 
-    margin-top: 12px;
+.days-text {
 
-  }
+  font-size: clamp(28px, 4vw, 56px);
 
-  .date {
+  font-weight: 800;
 
-    font-family: Georgia, serif;
+  color: #8b3f24;
 
-    font-size: clamp(28px, 4vw, 58px);
+  margin-bottom: 15px;
 
-    font-weight: bold;
+}
 
-    color: #6b3524;
+.date {
 
-  }
+  font-size: clamp(28px, 4vw, 58px);
 
-  .church {
+  font-weight: 800;
 
-    margin-top: 18px;
+  color: #6b3524;
 
-    font-size: clamp(20px, 2.5vw, 38px);
+}
 
-    font-weight: bold;
+.church {
 
-    color: #8b3f24;
+  margin-top: 18px;
 
-  }
+  font-size: clamp(20px, 2.5vw, 38px);
+
+  font-weight: 700;
+
+  color: #8b3f24;
+
+}
 
 </style>
 
@@ -170,17 +176,17 @@
 
 <div class="frame">
 
-  <h1>CHRISTMAS BAZAAR</h1>
+  <div class="title">CHRISTMAS BAZAAR</div>
 
   <div class="subtitle">The Countdown Is On!</div>
 
-  <div class="countbox">
+  <div class="count-box">
 
     <div id="days">--</div>
 
-    <div class="days-label">DAYS UNTIL THE BAZAAR</div>
-
   </div>
+
+  <div class="days-text">DAYS UNTIL THE BAZAAR</div>
 
   <div class="date">NOVEMBER 14, 2026</div>
 
@@ -190,29 +196,43 @@
 
 <script>
 
-  function updateCountdown() {
+function updateCountdown() {
 
-    const now = new Date();
+  const now = new Date();
 
-    const target = new Date(2026, 10, 14);
+  const target = new Date(
 
-    
+    now.getFullYear() === 2026 ? 2026 : 2026,
 
-    now.setHours(0, 0, 0, 0);
+    10,
 
-    target.setHours(0, 0, 0, 0);
+    14
 
-    const difference = target - now;
+  );
 
-    const days = Math.max(0, Math.ceil(difference / 86400000));
+  const today = new Date(
 
-    document.getElementById("days").textContent = days;
+    now.getFullYear(),
 
-  }
+    now.getMonth(),
 
-  updateCountdown();
+    now.getDate()
 
-  setInterval(updateCountdown, 60000);
+  );
+
+  const bazaar = new Date(2026, 10, 14);
+
+  const difference = bazaar - today;
+
+  const days = Math.max(0, Math.ceil(difference / 86400000));
+
+  document.getElementById("days").textContent = days;
+
+}
+
+updateCountdown();
+
+setInterval(updateCountdown, 60000);
 
 </script>
 
