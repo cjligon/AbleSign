@@ -1,0 +1,73 @@
+* { box-sizing: border-box; }
+
+html, body {
+
+  margin: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  overflow: hidden;
+
+  background: #17110f;
+
+}
+
+body {
+
+  display: grid;
+
+  place-items: center;
+
+}
+
+.slide {
+
+  position: relative;
+
+  width: min(100vw, 150vh);
+
+  aspect-ratio: 3 / 2;
+
+  overflow: hidden;
+
+}
+
+.slide img {
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+}
+
+.slide svg {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+}
+
+#days {
+
+  fill: #d9454e;
+
+  stroke: #c33a45;
+
+  stroke-width: 0.6px;
+
+  paint-order: stroke fill;
+
+  font: italic bold 123px Georgia, 'Times New Roman', serif;
+
+  letter-spacing: -9px;
+
+}
