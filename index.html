@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Christmas Bazaar Countdown</title>
+
+<style>
+
+html, body {
+
+    margin: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    overflow: hidden;
+
+}
+
+body {
+
+    background: linear-gradient(135deg, #7a2418, #d07a2d);
+
+    color: white;
+
+    font-family: Arial, sans-serif;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+}
+
+.container {
+
+    width: 90%;
+
+}
+
+h1 {
+
+    font-size: 6vw;
+
+    margin: 0 0 25px;
+
+}
+
+.number-box {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 28vw;
+
+    height: 28vw;
+
+    max-width: 430px;
+
+    max-height: 430px;
+
+    background: #fff8e8;
+
+    color: #8b2e1d;
+
+    border: 12px solid #f2b84b;
+
+    border-radius: 35px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+
+}
+
+#days {
+
+    font-size: 15vw;
+
+    font-weight: bold;
+
+    line-height: 1;
+
+    transform: translateY(-2%);
+
+}
+
+.days-text {
+
+    font-size: 5vw;
+
+    font-weight: bold;
+
+    margin-top: 20px;
+
+}
+
+.date {
+
+    font-size: 3vw;
+
+    margin-top: 15px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>CHRISTMAS BAZAAR</h1>
+
+    <div class="number-box">
+
+        <div id="days">--</div>
+
+    </div>
+
+    <div class="days-text">DAYS UNTIL THE BAZAAR</div>
+
+    <div class="date">NOVEMBER 14, 2026</div>
+
+</div>
+
+<script>
+
+function updateCountdown() {
+
+    const now = new Date();
+
+    const target = new Date(2026, 10, 14);
+
+    now.setHours(0,0,0,0);
+
+    target.setHours(0,0,0,0);
+
+    const difference = target - now;
+
+    const days = Math.max(0, Math.ceil(difference / 86400000));
+
+    document.getElementById("days").textContent = days;
+
+}
+
+updateCountdown();
+
+setInterval(updateCountdown, 60000);
+
+</script>
+
+</body>
+
+</html>
